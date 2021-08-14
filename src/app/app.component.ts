@@ -6,5 +6,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'classrooms-project';
-}
+  isAuth = false
+  lastUpdate = new Promise<Date>((resolve, reject) => {
+    const date = new Date();
+    setTimeout(
+      () => {
+        resolve(date);
+      }, 2000
+    );
+  });
+  constructor(){
+      setTimeout(()=>{this.isAuth=true} , 4000)
+        
+      
+  }
+  onAllume(){
+    console.log('object');
+  }
+  appariels=[
+    { 
+      name : 'tv', status :'eteint'
+    },
+    {
+      name : 'ordinateur', status :'eteint'
+    },
+    {
+      name : 'machine a laver', status :'allumé'
+    }
+  ]}
