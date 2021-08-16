@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { ApparielService } from './services/appariel.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  appariels:any[] =[]
+   
   isAuth = false
   lastUpdate = new Promise<Date>((resolve, reject) => {
     const date = new Date();
@@ -15,22 +17,21 @@ export class AppComponent {
       }, 2000
     );
   });
-  constructor(){
+  constructor(private apparielService: ApparielService){
       setTimeout(()=>{this.isAuth=true} , 4000)
         
       
   }
+  ngOnInit(){
+    this.appariels=this.apparielService.appariels
+  }
   onAllume(){
     console.log('object');
+    this.apparielService.switchOnAll()
   }
-  appariels=[
-    { 
-      name : 'tv', status :'eteint'
-    },
-    {
-      name : 'ordinateur', status :'eteint'
-    },
-    {
-      name : 'machine a laver', status :'allumé'
-    }
-  ]}
+  onetient(){
+    this.apparielService.switchOffAll()
+    console.log('object');
+  }
+
+}
