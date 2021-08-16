@@ -1,1 +1,13 @@
-<p>appariel-view works!</p>
+<div class='col-xs-12'>
+    <h2>Mes appariels</h2>
+    <p>Mis à jour : {{lastUpdate| async   }}</p> 
+    <ul class="list-group">
+
+      
+      <app-appareil *ngFor="let appriel of appariels ; let i =index"  [apparielIndex] = "i" [apparielName]="appriel.name" [appareilStatus] = "appriel.status" [id] ='appriel.id'></app-appareil>
+
+    </ul>
+    <button (click)='onAllume()' class="btn" [disabled]="!isAuth">Tout Allumer</button>
+    <button (click)='onetient()' class="btn" [disabled]="!isAuth">Tout Eteindre</button>
+
+  </div>

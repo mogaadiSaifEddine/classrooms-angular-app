@@ -9,6 +9,11 @@
     </div>
     <h4 [ngStyle]="{color: getColor()}">appareil : {{apparielName}} --- status : {{appareilStatus}}</h4>   
     <input type='text' class="form-control" [(ngModel)]='apparielName'>
-    <button *ngIf="appareilStatus==='eteint'" class="btn btn-primary" (click)='switchOnOne()' >Turn On</button>
-    <button *ngIf = "appareilStatus==='allumé'" class = "btn btn-secondary" (click) = 'switchOffOne()' >Turn Off</button>
+
+
+
+
+    <button  class="btn btn-primary" (click)= "appareilStatus==='eteint'? switchOnOne() : switchOffOne()" >{{getValue()}}</button>
+    <a [routerLink]= "[id]">plus d'informations ! </a>
+   <!-- <button *ngIf = "appareilStatus==='allumé'" class = "btn btn-secondary" (click) = 'switchOffOne()' >Turn Off</button>-->
 </li>

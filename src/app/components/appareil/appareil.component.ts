@@ -11,8 +11,9 @@ export class AppareilComponent implements OnInit {
   @Input() apparielName : string =''
   @Input() appareilStatus : string=''
   @Input() apparielIndex : number=0
+
+  @Input() id : number = 0
   @Output() appareilEvent = new EventEmitter()
-  
   
   constructor(private appareilService : ApparielService) { } 
 
@@ -21,11 +22,16 @@ export class AppareilComponent implements OnInit {
   getStatus():string {
     return this.appareilStatus
   }
+  getValue() :string{
+    let msg :string= ' '
+    msg = this.appareilStatus ==='eteint' ? 'Turn On' : 'turn off'
+    return msg
+  }
   getColor () : string {
     let color :string=''
    color =  this.appareilStatus==='eteint' ?   'red' :'green'
     return   color
-
+  
 
     }
     switchOnOne(){

@@ -7,19 +7,28 @@ import { AppareilComponent } from './components/appareil/appareil.component';
 import { ApparielService } from './services/appariel.service';
 import { AuthComponent } from './components/auth/auth.component';
 import { ApparielViewComponent } from './components/appariel-view/appariel-view.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthService } from './services/auth.service';
+import { OneAppareilComponent } from './components/one-appareil/one-appareil.component';
+import { QtzeroqtComponent } from './qtzeroqt/qtzeroqt.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppareilComponent,
     AuthComponent,
-    ApparielViewComponent
+    ApparielViewComponent ,
+    OneAppareilComponent,
+    QtzeroqtComponent ,
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule  , FormsModule
+    AppRoutingModule  , FormsModule 
+  
   ],
-  providers: [ApparielService],
+  providers: [ApparielService , AuthService ,  AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

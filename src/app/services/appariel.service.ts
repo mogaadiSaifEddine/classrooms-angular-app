@@ -6,17 +6,23 @@ import { Injectable } from '@angular/core';
 export class ApparielService {
   appariels=[
     { 
-      name : 'tv', status :'eteint'
+     id:1 ,  name : 'tv', status :'eteint'
     },
     {
-      name : 'ordinateur', status :'eteint'
+      id:2,  name : 'ordinateur', status :'eteint'
     },
     {
-      name : 'machine a laver', status :'allumé'
+      id:3,  name : 'machine a laver', status :'allumé'
     }
   ]
 
   constructor() { }
+
+  getAppareilbyId(id:number) {
+   const appriel = this.appariels.find(app=> app.id===id)
+   return appriel
+
+  }
   switchOnAll(){
     this.appariels.map(app=>app.status='allumé')
   }
