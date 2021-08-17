@@ -12,7 +12,7 @@ export class AppareilComponent implements OnInit {
   @Input() appareilStatus : string=''
   @Input() apparielIndex : number=0
 
-  @Input() id : number = 0
+  @Input() id : number = 0 
   @Output() appareilEvent = new EventEmitter()
   
   constructor(private appareilService : ApparielService) { } 

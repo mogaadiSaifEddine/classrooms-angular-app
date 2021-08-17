@@ -5,7 +5,7 @@
                 <label for ="name">
                     Nom  de l'appareil
                 </label>
-                <input type="text" id='name' class="form-control">
+                <input type="text" id='name' class="form-control" name="name" ngModel required>
 
             
             </div>
@@ -13,7 +13,7 @@
                 <label for ="name">
                     status  de l'appareil
                 </label>
-                <select id="status">
+                <select id="status" name="status" [ngModel] ='defaultOnOff'>
                     <option value ="allumé">allumé</option>
                     <option value ="eteint">eteint</option>
 
@@ -21,7 +21,7 @@
 
             
             </div>
-            <button type="submit" class="btn btn-primary">valider </button>
+            <button type="submit" [disabled] ='f.invalid' class="btn btn-primary">valider </button>
         </form>
     </div>
 </div>

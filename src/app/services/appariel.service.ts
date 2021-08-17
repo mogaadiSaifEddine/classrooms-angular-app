@@ -46,5 +46,17 @@ export class ApparielService {
     this.appariels[index].status='eteint'
     this.emitAppSubject()
   }
+  addAppareil (name: string , status : string){
+    const appObject ={
+         id: this.appariels.length+1 ,
+         name , 
+         status 
+
+    }
+    this.appariels.push(appObject)
+    this.emitAppSubject()
+  
+
+  }
 
 }
