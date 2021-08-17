@@ -31,7 +31,7 @@ export class ApparielViewComponent implements OnInit {
       this.appariels=appariels
     )
     this.apparielService.emitAppSubject()
-  }
+  } 
   onAllume(){
     console.log('object');
     this.apparielService.switchOnAll()

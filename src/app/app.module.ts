@@ -12,6 +12,7 @@ import { AuthService } from './services/auth.service';
 import { OneAppareilComponent } from './components/one-appareil/one-appareil.component';
 import { QtzeroqtComponent } from './qtzeroqt/qtzeroqt.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { EditAppareilComponent } from './components/edit-appareil/edit-appareil.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     AuthComponent,
     ApparielViewComponent ,
     OneAppareilComponent,
-    QtzeroqtComponent ,
+    QtzeroqtComponent,
+    EditAppareilComponent ,
   
   ],
   imports: [
