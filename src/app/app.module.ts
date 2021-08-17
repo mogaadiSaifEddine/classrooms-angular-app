@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppareilComponent } from './components/appareil/appareil.component';
@@ -13,6 +13,8 @@ import { OneAppareilComponent } from './components/one-appareil/one-appareil.com
 import { QtzeroqtComponent } from './qtzeroqt/qtzeroqt.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { EditAppareilComponent } from './components/edit-appareil/edit-appareil.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -22,15 +24,16 @@ import { EditAppareilComponent } from './components/edit-appareil/edit-appareil.
     ApparielViewComponent ,
     OneAppareilComponent,
     QtzeroqtComponent,
-    EditAppareilComponent ,
+    EditAppareilComponent,
+    UsersListComponent ,
   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule  , FormsModule 
+    AppRoutingModule  , FormsModule  , ReactiveFormsModule
   
   ],
-  providers: [ApparielService , AuthService ,  AuthGuardService],
+  providers: [ApparielService , UserService , AuthService ,  AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

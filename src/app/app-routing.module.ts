@@ -4,6 +4,7 @@ import { ApparielViewComponent } from './components/appariel-view/appariel-view.
 import { AuthComponent } from './components/auth/auth.component';
 import { EditAppareilComponent } from './components/edit-appareil/edit-appareil.component';
 import { OneAppareilComponent } from './components/one-appareil/one-appareil.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
 import { QtzeroqtComponent } from './qtzeroqt/qtzeroqt.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
@@ -12,6 +13,7 @@ const appRoutes : Routes=[
   {path :'' , canActivate:[AuthGuardService] , component : ApparielViewComponent} , 
   {path :'app' , canActivate:[AuthGuardService] , component : ApparielViewComponent} ,
   {path:'edit',canActivate: [AuthGuardService] ,  component : EditAppareilComponent} ,
+  {path:'user' , component : UsersListComponent} , 
 
  {path : 'app/:id' ,component : OneAppareilComponent } , 
  {path : 'aaa' ,component : QtzeroqtComponent } , 
