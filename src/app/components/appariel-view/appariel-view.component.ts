@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ApparielService } from 'src/app/services/appariel.service';
 
 
@@ -9,6 +10,7 @@ import { ApparielService } from 'src/app/services/appariel.service';
 })
 export class ApparielViewComponent implements OnInit {
   appariels:any[] =[]
+  appareilSub = new Subscription 
    
   isAuth = false
   lastUpdate = new Promise<Date>((resolve, reject) => {
@@ -25,7 +27,10 @@ export class ApparielViewComponent implements OnInit {
       
   }
   ngOnInit(){
-    this.appariels=this.apparielService.appariels
+    this.appareilSub=this.apparielService.apparielSubject.subscribe(appariels=>
+      this.appariels=appariels
+    )
+    this.apparielService.emitAppSubject()
   }
   onAllume(){
     console.log('object');

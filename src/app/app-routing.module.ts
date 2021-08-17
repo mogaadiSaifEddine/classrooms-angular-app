@@ -9,6 +9,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 const appRoutes : Routes=[
   {path : 'auth' ,component : AuthComponent} , 
   {path :'' , canActivate:[AuthGuardService] , component : ApparielViewComponent} , 
+  {path :'app' , canActivate:[AuthGuardService] , component : ApparielViewComponent} , 
+
  {path : 'app/:id' ,component : OneAppareilComponent } , 
  {path : 'aaa' ,component : QtzeroqtComponent } , 
  {path : '**' , redirectTo : 'aaa'}

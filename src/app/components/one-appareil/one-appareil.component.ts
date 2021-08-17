@@ -20,7 +20,7 @@ export class OneAppareilComponent implements OnInit {
     this.name=this.appareil.name
     this.status=this.appareil.status
     console.log(this.name , this.status);
-
+    console.log(this.name);
   }
 
 }

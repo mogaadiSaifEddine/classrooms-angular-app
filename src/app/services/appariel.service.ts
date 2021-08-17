@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApparielService {
-  appariels=[
+  apparielSubject = new Subject<any[]>()
+ private appariels=[
     { 
      id:1 ,  name : 'tv', status :'eteint'
     },
@@ -17,23 +19,32 @@ export class ApparielService {
   ]
 
   constructor() { }
+  emitAppSubject(){
+    this.apparielSubject.next(this.appariels.slice())
+  }
 
   getAppareilbyId(id:number) {
    const appriel = this.appariels.find(app=> app.id===id)
+   this.emitAppSubject()
+
    return appriel
 
   }
   switchOnAll(){
     this.appariels.map(app=>app.status='allumé')
+    this.emitAppSubject()
   }
   switchOffAll(){
     this.appariels.map(app=>app.status='eteint')
+    this.emitAppSubject()
   }
   switchOnOne(index:number) {
     this.appariels[index].status='allumé'
+    this.emitAppSubject()
   }
   switchOffOne (index:number) {
     this.appariels[index].status='eteint'
+    this.emitAppSubject()
   }
 
 }
