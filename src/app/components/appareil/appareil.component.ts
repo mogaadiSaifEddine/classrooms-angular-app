@@ -40,8 +40,7 @@ export class AppareilComponent implements OnInit {
     switchOffOne(){
       this.appareilService.switchOffOne(this.apparielIndex)
     }
-    
-
+  
   }
 
 

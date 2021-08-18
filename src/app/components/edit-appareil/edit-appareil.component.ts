@@ -20,6 +20,7 @@ export class EditAppareilComponent implements OnInit {
    const status = form.value['status']
    this.appareilService.addAppareil(name, status)
    this.route.navigate(['/app'])
+   
     
 
   }

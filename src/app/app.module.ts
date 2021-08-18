@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {HttpClientJsonpModule, HttpClientModule} from'@angular/common/http';  
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +33,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule  , FormsModule  , ReactiveFormsModule
+    AppRoutingModule  , FormsModule  , ReactiveFormsModule, HttpClientModule   
   
   ],
   providers: [ApparielService , UserService , AuthService ,  AuthGuardService],

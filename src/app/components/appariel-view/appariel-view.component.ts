@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ApparielService } from 'src/app/services/appariel.service';
 
@@ -8,7 +8,7 @@ import { ApparielService } from 'src/app/services/appariel.service';
   templateUrl: './appariel-view.component.html',
   styleUrls: ['./appariel-view.component.scss']
 })
-export class ApparielViewComponent implements OnInit {
+export class ApparielViewComponent implements OnInit  {
   appariels:any[] =[]
   appareilSub = new Subscription 
    
@@ -30,8 +30,10 @@ export class ApparielViewComponent implements OnInit {
     this.appareilSub=this.apparielService.apparielSubject.subscribe(appariels=>
       this.appariels=appariels
     )
+    // this.apparielService.fetching()
     this.apparielService.emitAppSubject()
   } 
+  
   onAllume(){
     console.log('object');
     this.apparielService.switchOnAll()
@@ -40,6 +42,9 @@ export class ApparielViewComponent implements OnInit {
     this.apparielService.switchOffAll()
     console.log('object');
   }
+//  onFetch(){
+//    this.apparielService.fetching
+//  }
 
   
 

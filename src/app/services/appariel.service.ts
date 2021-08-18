@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { HttpClient} from'@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,18 @@ export class ApparielService {
       id:3,  name : 'machine a laver', status :'allumé'
     }
   ]
+  
 
-  constructor() { }
+  constructor(private httpClient : HttpClient) { }
   emitAppSubject(){
-    this.apparielSubject.next(this.appariels.slice())
+    this.httpClient.get<any[]>(
+      'https://classrooms-project-default-rtdb.europe-west1.firebasedatabase.app/appareils.json' ).subscribe((res)=>{
+      this.apparielSubject.next( Object.values(res));console.log(Object.values(res))  ;}, (err)=>{console.log('erreur ya broo ')+err;}
+      )
+    
+    
+  //  this.apparielSubject.next(this.appariels.slice())
+  //   console.log(this.appariels);
   }
 
   getAppareilbyId(id:number) {
@@ -54,9 +63,23 @@ export class ApparielService {
 
     }
     this.appariels.push(appObject)
+    this.httpClient.post('https://classrooms-project-default-rtdb.europe-west1.firebasedatabase.app/appareils.json' ,appObject ).subscribe(()=>{console.log("termine");}, (err)=>{console.log('erreur ya broo ')+err;})
+  
     this.emitAppSubject()
   
 
   }
+  fetching(){
+    this.httpClient.get<any[]>(
+      'https://classrooms-project-default-rtdb.europe-west1.firebasedatabase.app/appareils.json' ).subscribe((res)=>{
+      this.appariels=Object.values(res);console.log(Object.values(res)); this.emitAppSubject()  ;}, (err)=>{console.log('erreur ya broo ')+err;}
+      )
+     
+  }
+  // changinStatus(id:number){
+  //   this.httpClient.put(
+  //     'https://classrooms-project-default-rtdb.europe-west1.firebasedatabase.app/appareils.json' , '')
+  // }
+  
 
 }

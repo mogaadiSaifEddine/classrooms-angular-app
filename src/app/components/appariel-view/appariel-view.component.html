@@ -4,10 +4,12 @@
     <ul class="list-group">
 
       
-      <app-appareil *ngFor="let appriel of appariels ; let i =index"  [apparielIndex] = "i" [apparielName]="appriel.name" [appareilStatus] = "appriel.status" [id] ='appriel.id'></app-appareil>
+      <app-appareil *ngFor="let appriel of appariels ; let i =index"  [apparielIndex] = "i" [apparielName]="appriel.name" [appareilStatus] = "appriel.status" [id] ='appriel.id '></app-appareil>
 
     </ul>
-    <button (click)='onAllume()' class="btn" [disabled]="!isAuth">Tout Allumer</button>
-    <button (click)='onetient()' class="btn" [disabled]="!isAuth">Tout Eteindre</button>
+    <button (click)='onAllume()' class="btn btn-secondary" [disabled]="!isAuth">Tout Allumer</button>
+    <button (click)='onetient()' class="btn btn-danger" [disabled]="!isAuth">Tout Eteindre</button>
+    <!--<button (click)='onFetch()' class="btn btn-danger" [disabled]="!isAuth">Tout </button>-->
+    
 
   </div>

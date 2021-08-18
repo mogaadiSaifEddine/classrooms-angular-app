@@ -29,6 +29,6 @@
             </div>
             <button type="button" class="btn btn-succes" (click) = 'onAddhobbie()'>Ajouter un hobbie  </button>
         </div>
-        <button class="btn btn-primary" type="submit" [disabled]='userForm.invalid'>Valider </button>
+        <button class="btn btn-primary" type="submit" [disabled]='!userForm.valid'>Valider </button>
     </form>
 </div>

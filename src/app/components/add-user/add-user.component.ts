@@ -41,18 +41,18 @@ export class AddUserComponent implements OnInit {
                             formValue['lastName'] ,
                             formValue['email'] ,
                             formValue['drinkPreference'] ,
-                            formValue['hobbies'] ?formValue['hobbies'] : [] , )
+                            formValue['hobbies']  , )
     this.userService.addUSer(newUser)
     this.route.navigate(['/user'])
 
   }
   getHobbies(){
-    console.log(this.userForm.get('hobbies'));
+    
     return this.userForm.get('hobbies') as FormArray
   
   }
   onAddhobbie(){
-    const newHobbie=this.formBuilder.control(null , Validators.required)
+    const newHobbie=this.formBuilder.control(null)
     this.getHobbies().push(newHobbie)
     console.log(newHobbie);
     
