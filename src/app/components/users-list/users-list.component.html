@@ -1,4 +1,6 @@
 <ul class="list-group">
+    <li routerLinkActive = "active" class="nav-item"><a class="nav-link" routerLink='/addUser'>add user</a></li>
+
     <li class="list-group-item" *ngFor="let user of users">
         <h1>{{user.firstName}}</h1>
         <h2>{{user.lastName}}</h2>

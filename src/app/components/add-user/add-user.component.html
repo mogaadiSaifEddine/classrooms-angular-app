@@ -1,0 +1,34 @@
+<div class="col-sm-8 col-sm-offset-2">
+    <form  [formGroup] = 'userForm' (ngSubmit)='onSubmit()'>
+        <div class="form-group"> 
+            <label for="firstName" > first Name  </label>
+            <input class="form-control" type="text" name='firstName' id="firstName" formControlName='firstName'>
+        </div>
+        <div class="form-group"> 
+            <label for="lastName"> Last Name </label>
+            <input class="form-control" type="text" name="lastName" id="lastName"  formControlName='lastName' >
+        </div>
+        <div class="form-group"> 
+            <label for ='email'>Email </label>
+            <input class="form-control" type="text" name="email" id="email"  formControlName='email'  >
+        </div>
+        <div class="form-group"> 
+            <label for ='drinkpreference'>drink preference </label>
+            <select id="drinkPreference"  formControlName='drinkPreference'  [ngModel] ='defaultdrink' >
+                <option value="coca">coca</option>
+                <option value="pepsi">pepsi</option>
+            </select>
+
+        </div>
+        <div formGroupName='hobbies'>
+            <h3>vous hobbies</h3>
+            <div class="form-group" *ngFor="let hobbie of getHobbies().controls ; let i = index">
+                <label for="hobbie">hobbie</label>
+                <input type="text" class="form-control" id="hobbie" name="hobbie"  [formControlName] ='i'>
+
+            </div>
+            <button type="button" class="btn btn-succes" (click) = 'onAddhobbie()'>Ajouter un hobbie  </button>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]='userForm.invalid'>Valider </button>
+    </form>
+</div>
